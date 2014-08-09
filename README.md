@@ -85,7 +85,7 @@ I also added an SQLAlchemy column type for Postgres. Use it like this:
 
 ```python
 import lexical_uuid
-from lexical_uuid.sqlalchemy import LexicalUUID
+from lexical_uuid.alchemy import LexicalUUID
 
 class Entity(db.Model):
   id = db.Column('id', LexicalUUID(), primary_key=True, default=lexical_uuid.LexicalUUID)
