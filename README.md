@@ -3,6 +3,10 @@ lexical_uuid
 
 A Lexical UUID type for Python
 
+### Installation
+
+I haven't uploaded to PyPI yet. So just add to your `requirements.txt` file `-e git+git@github.com:samuraisam/lexical_uuid.git#egg=lexical_uuid`. 
+
 ### Usage
 
 It's a very basic library and has many of the same functions as Python's built-in UUID library.
@@ -73,6 +77,18 @@ assert l3 > l
 
 # they can be used as keys in dictionaries (they are hashable)
 d = {l: (l2, l3)}
+```
+
+### SQLAlchemy Columns
+
+I also added an SQLAlchemy column type for Postgres. Use it like this:
+
+```python
+import lexical_uuid
+from lexical_uuid.sqlalchemy import LexicalUUID
+
+class Entity(db.Model):
+  id = db.Column('id', LexicalUUID(), primary_key=True, default=lexical_uuid.LexicalUUID)
 ```
 
 ### Credits
